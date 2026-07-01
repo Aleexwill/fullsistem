@@ -1,0 +1,13 @@
+from app.core.extensions import ma
+from app.models.work_order import WorkOrder
+
+
+class WorkOrderSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = WorkOrder
+        load_instance = True
+        include_fk = True
+
+
+work_order_schema = WorkOrderSchema()
+work_orders_schema = WorkOrderSchema(many=True)
